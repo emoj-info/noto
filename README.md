@@ -40,8 +40,8 @@ This repository combines all [Noto Emoji](https://github.com/googlefonts/noto-em
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/unified-emoji-flags.git
-cd unified-emoji-flags
+git clone https://github.com/emoj-info/noto.git
+cd noto
 ```
 
 2. Install Python dependencies:
