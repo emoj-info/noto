@@ -14,6 +14,7 @@ This repository combines all [Noto Emoji](https://github.com/googlefonts/noto-em
   - [Optimize PNGs](#optimize-pngs)
 - [Saved (png optimization)](#saved-png-optimization)
 - [File Naming Convention](#file-naming-convention)
+- [CDN Usage](#cdn-usage)
 - [License](#license)
   - [Repository Code](#repository-code)
   - [Noto Assets](#noto-assets)
