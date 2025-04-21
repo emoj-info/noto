@@ -97,7 +97,7 @@ See the reference implementation at [strip_vs_from_filenames.py](https://github.
 
 Load emojis and Unicode assets via jsDelivr:
 
-__Sizes__: 32,72,128,512
+__Sizes__: 32/72/128/512
 
 | Format      | URL Template                                                             | Example                                                              |
 |-------------|---------------------------------------------------------------------------|----------------------------------------------------------------------|
