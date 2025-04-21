@@ -1,17 +1,15 @@
 #!/usr/bin/env python3
 
-# python ./scripts/emoji.py -i test -o emoji
-
 import argparse
 import shutil
+import unicodedata  # for unicode normalization
 from pathlib import Path
 
 def codes_to_emoji(code_seq: str) -> str:
-    """
-    Convert a sequence of hex codes (e.g. "00a9_1f600") to actual emoji string.
-    """
-    # split on underscores, parse each hex as integer, then to chr
-    return ''.join(chr(int(h, 16)) for h in code_seq.split('_'))
+    # Convert underscore-separated hex codes into an emoji string,
+    # then normalize to NFD for macOS compatibility.
+    emoji = ''.join(chr(int(h, 16)) for h in code_seq.split('_'))
+    return unicodedata.normalize('NFD', emoji)
 
 def main(input_dir: Path, output_dir: Path) -> None:
     """
@@ -25,13 +23,17 @@ def main(input_dir: Path, output_dir: Path) -> None:
         target_folder.mkdir(parents=True, exist_ok=True)
 
         for src in size_folder.glob('emoji_u*.png'):
-            stem = src.stem                 # e.g. "emoji_u00a9"
             # remove prefix "emoji_u"
-            code_seq = stem.removeprefix('emoji_u')
+            code_seq = src.stem.removeprefix('emoji_u')
             emoji = codes_to_emoji(code_seq)
+            # add .png extension
             dst = target_folder / f"{emoji}"
-            shutil.copy2(src, dst)         # preserve metadata
-            print(f"Copied {src.name} → {dst.name}")
+            try:
+                shutil.copy2(src, dst)  # preserve metadata
+                print(f"Copied {src.name} → {dst.name}")
+            except OSError as e:
+                # выводим ошибку, но скрипт не падает
+                print(f"Failed to copy {src.name}: {e}")
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -39,8 +41,8 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--input-dir", "-i",
-        type=Path, default=Path("test"),
-        help="source root (e.g. test/)"
+        type=Path, default=Path("png"),
+        help="source root (e.g. png/)"
     )
     parser.add_argument(
         "--output-dir", "-o",
