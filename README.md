@@ -15,6 +15,7 @@ This repository combines all [Noto Emoji](https://github.com/googlefonts/noto-em
 - [Saved (png optimization)](#saved-png-optimization)
 - [File Naming Convention](#file-naming-convention)
 - [CDN Usage](#cdn-usage)
+- [Example](#example)
 - [License](#license)
   - [Repository Code](#repository-code)
   - [Noto Assets](#noto-assets)
@@ -104,6 +105,19 @@ __Sizes__: 32/72/128/512
 | Emoji Char  | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/emoji/{size}/{emoji}`     | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/emoji/128/%F0%9F%98%8D`  |
 | Unicode PNG | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/png/{size}/emoji_u{code}.png` | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/png/128/emoji_u1f60d.png` |
 | Unicode SVG | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/svg/emoji_u{code}.svg` | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/svg/emoji_u1f60d.svg` |
+
+## Example
+
+Inspired by [https://github.com/benborgers/emojicdn](https://github.com/benborgers/emojicdn).
+
+[DEMO 👀](https://codepen.io/dejurin/pen/LEENVNv)
+
+```html
+<img src="https://cdn.jsdelivr.net/gh/emoj-info/noto@main/emoji/32/🥳" />
+<img src="https://cdn.jsdelivr.net/gh/emoj-info/noto@main/emoji/72/🥳" />
+<img src="https://cdn.jsdelivr.net/gh/emoj-info/noto@main/emoji/128/🥳" />
+<img src="https://cdn.jsdelivr.net/gh/emoj-info/noto@main/emoji/512/🥳" />
+```
 
 
 ## License
