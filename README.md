@@ -8,7 +8,7 @@ This repository combines all [Noto Emoji](https://github.com/googlefonts/noto-em
 - [Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Installation](#installation)
-- [Usage](#usage)
+- [Dev](#dev)
   - [Download SVGs](#download-svgs)
   - [Convert to PNG](#convert-to-png)
   - [Optimize PNGs](#optimize-pngs)
@@ -48,7 +48,7 @@ cd unified-emoji-flags
 pip install -r requirements.txt
 ```
 
-## Usage
+## Dev
 
 1. **Download SVGs**
 
@@ -91,6 +91,19 @@ Filename:   emoji_u1f3c7_1f3fd_200d_2642.png
 ```
 
 See the reference implementation at [strip_vs_from_filenames.py](https://github.com/googlefonts/noto-emoji/blob/main/strip_vs_from_filenames.py).
+
+## CDN Usage
+
+Load emojis and Unicode assets via jsDelivr:
+
+__Sizes__: 32,72,128,512
+
+| Format      | URL Template                                                             | Example                                                              |
+|-------------|---------------------------------------------------------------------------|----------------------------------------------------------------------|
+| Emoji Char  | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/emoji/{size}/{emoji}`     | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/emoji/128/%F0%9F%98%8D`  |
+| Unicode PNG | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/png/{size}/emoji_u{code}.png` | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/png/128/emoji_u1f60d.png` |
+| Unicode SVG | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/svg/emoji_u{code}.svg` | `https://cdn.jsdelivr.net/gh/emoj-info/noto@main/svg/emoji_u1f60d.svg` |
+
 
 ## License
 
